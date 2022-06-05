@@ -1,6 +1,7 @@
 # Kactory
 
 [![CircleCI](https://circleci.com/gh/Jintin/Kactory.svg?style=shield)](https://app.circleci.com/pipelines/github/Jintin/Kactory)
+[![Jitpack](https://jitpack.io/v/Jintin/Kactory.svg)](https://jitpack.io/#Jintin/Kactory)
 
 Kactory is a library to auto generate simple factory classes with some annotation via ksp(Kotlin
 Symbol Processing).
