@@ -42,8 +42,10 @@ android {
 }
 
 dependencies {
-    implementation project(":annotation")
-    ksp project(":processor")
+//    implementation project(":annotation")
+//    ksp project(":processor")
+    implementation 'com.github.Jintin.Kactory:annotation:master-SNAPSHOT'
+    ksp 'com.github.Jintin.Kactory:processor:master-SNAPSHOT'
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.6.0'
