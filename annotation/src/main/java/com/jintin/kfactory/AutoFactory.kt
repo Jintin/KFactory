@@ -1,4 +1,4 @@
-package com.jintin.kactory
+package com.jintin.kfactory
 
 @Target(AnnotationTarget.CLASS)
 @Retention(AnnotationRetention.SOURCE)

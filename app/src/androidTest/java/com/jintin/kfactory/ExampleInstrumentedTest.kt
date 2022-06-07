@@ -1,4 +1,4 @@
-package com.jintin.kactory
+package com.jintin.kfactory
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

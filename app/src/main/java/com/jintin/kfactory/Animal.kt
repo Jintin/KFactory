@@ -1,4 +1,4 @@
-package com.jintin.kactory
+package com.jintin.kfactory
 
 @AutoFactory
 interface Animal { // Can be abstract class too

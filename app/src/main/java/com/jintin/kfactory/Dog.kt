@@ -1,6 +1,4 @@
-package com.jintin.kactory
-
-import com.jintin.kactory.AutoElement
+package com.jintin.kfactory
 
 @AutoElement("Dog")
 class Dog : Animal {
