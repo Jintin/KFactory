@@ -1,7 +1,7 @@
-package com.jintin.kactory.wrapper
+package com.jintin.kfactory.wrapper
 
-import com.jintin.kactory.Animal
-import com.jintin.kactory.AutoElement
+import com.jintin.kfactory.Animal
+import com.jintin.kfactory.AutoElement
 
 class Wrapper {
 

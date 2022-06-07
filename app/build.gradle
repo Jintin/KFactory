@@ -17,7 +17,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.jintin.kactory"
+        applicationId "com.jintin.kfactory"
         minSdk 21
         targetSdk 32
         versionCode 1
@@ -44,10 +44,10 @@ android {
 dependencies {
     implementation project(":annotation")
     ksp project(":processor")
-//    implementation 'com.github.Jintin.Kactory:annotation:master-SNAPSHOT'
-//    ksp 'com.github.Jintin.Kactory:processor:master-SNAPSHOT'
-//    implementation 'com.github.Jintin.Kactory:annotation:1.0.0'
-//    ksp 'com.github.Jintin.Kactory:processor:1.0.0'
+//    implementation 'com.github.Jintin.KFactory:annotation:master-SNAPSHOT'
+//    ksp 'com.github.Jintin.KFactory:processor:master-SNAPSHOT'
+//    implementation 'com.github.Jintin.KFactory:annotation:1.0.0'
+//    ksp 'com.github.Jintin.KFactory:processor:1.0.0'
     implementation 'com.google.android.material:material:1.6.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

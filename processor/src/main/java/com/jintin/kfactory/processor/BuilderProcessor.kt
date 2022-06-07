@@ -1,12 +1,12 @@
-package com.jintin.kactory.processor
+package com.jintin.kfactory.processor
 
 import com.google.devtools.ksp.processing.*
 import com.google.devtools.ksp.symbol.KSAnnotated
 import com.google.devtools.ksp.symbol.KSClassDeclaration
 import com.google.devtools.ksp.symbol.KSNode
 import com.google.devtools.ksp.validate
-import com.jintin.kactory.AutoElement
-import com.jintin.kactory.AutoFactory
+import com.jintin.kfactory.AutoElement
+import com.jintin.kfactory.AutoFactory
 import com.squareup.kotlinpoet.*
 
 class BuilderProcessor(

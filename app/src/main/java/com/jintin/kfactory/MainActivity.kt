@@ -1,9 +1,8 @@
-package com.jintin.kactory
+package com.jintin.kfactory
 
 import android.app.Activity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 
 class MainActivity : Activity() {

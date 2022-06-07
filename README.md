@@ -1,9 +1,9 @@
-# Kactory
+# KFactory
 
-[![CircleCI](https://circleci.com/gh/Jintin/Kactory.svg?style=shield)](https://app.circleci.com/pipelines/github/Jintin/Kactory)
-[![Jitpack](https://jitpack.io/v/Jintin/Kactory.svg)](https://jitpack.io/#Jintin/Kactory)
+[![CircleCI](https://circleci.com/gh/Jintin/KFactory.svg?style=shield)](https://app.circleci.com/pipelines/github/Jintin/KFactory)
+[![Jitpack](https://jitpack.io/v/Jintin/KFactory.svg)](https://jitpack.io/#Jintin/KFactory)
 
-Kactory is a library to auto generate simple factory classes with some annotation via ksp(Kotlin
+KFactory is a library to auto generate simple factory classes with some annotation via ksp(Kotlin
 Symbol Processing).
 
 ## Installation
@@ -28,8 +28,8 @@ And then declare the dependency. Do noted that for the processor dependency, it 
 not `kapt`
 
 ```groovy
-implementation 'com.github.Jintin.Kactory:annotation:{latest-version}'
-ksp 'com.github.Jintin.Kactory:processor:{latest-version}'
+implementation 'com.github.Jintin.KFactory:annotation:{latest-version}'
+ksp 'com.github.Jintin.KFactory:processor:{latest-version}'
 ```
 
 Lastly, the generated file will be located inside `build/generated/ksp/`, but your IDE might not
@@ -82,7 +82,7 @@ object AnimalFactory {
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at <https://github.com/Jintin/Kactory>.
+Bug reports and pull requests are welcome on GitHub at <https://github.com/Jintin/KFactory>.
 
 ## License
 

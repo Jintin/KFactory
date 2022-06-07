@@ -1,4 +1,4 @@
-package com.jintin.kactory.processor
+package com.jintin.kfactory.processor
 
 import com.google.devtools.ksp.symbol.KSDeclaration
 import com.google.devtools.ksp.symbol.KSTypeParameter
