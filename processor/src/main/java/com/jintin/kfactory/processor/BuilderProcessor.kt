@@ -31,27 +31,31 @@ class BuilderProcessor(
             .toSet()
     }
 
-    private fun genFile(key: ClassName, list: List<ElementIfo>): FileSpec {
+    private fun genFile(key: ClassName, list: List<ClassName>): FileSpec {
         val packageName = key.packageName
-        val fileName = key.simpleName + "Factory"
-        return FileSpec.builder(packageName, fileName)
-            .addType(
-                TypeSpec.objectBuilder(fileName)
-                    .addFunction(
-                        FunSpec.builder("create")
-                            .addParameter("key", String::class)
-                            .returns(key)
-                            .beginControlFlow("return when (key)")
-                            .also { builder ->
-                                list.forEach {
-                                    builder.addStatement(""""${it.key}" -> %T()""", it.className)
-                                }
-                            }
-                            .addStatement("""else -> throw RuntimeException("Not support type")""")
-                            .endControlFlow()
-                            .build()
-                    ).build()
-            ).build()
+        val funcName = key.simpleName + "Factory"
+        val enumName = key.simpleName + "Type"
+
+        return FileSpec.builder(packageName, funcName)
+            .addType(TypeSpec.enumBuilder(enumName)
+                .apply {
+                    list.forEach {
+                        addEnumConstant(it.simpleName.uppercase())
+                    }
+                }
+                .build())
+            .addFunction(FunSpec.builder(funcName)
+                .addParameter("key", ClassName(packageName, enumName))
+                .returns(key)
+                .beginControlFlow("return when (key)")
+                .apply {
+                    list.forEach {
+                        addStatement("${enumName}.${it.simpleName.uppercase()} -> %T()", it)
+                    }
+                }
+                .endControlFlow()
+                .build())
+            .build()
     }
 
     private fun writeFile(codeGenerator: CodeGenerator, fileSpec: FileSpec) {
@@ -67,33 +71,20 @@ class BuilderProcessor(
     private fun getElements(
         resolver: Resolver,
         factories: Set<ClassName>
-    ): Map<ClassName, List<ElementIfo>> {
-        val result = mutableMapOf<ClassName, MutableList<ElementIfo>>()
+    ): Map<ClassName, List<ClassName>> {
+        val result = mutableMapOf<ClassName, MutableList<ClassName>>()
         factories.forEach { result[it] = mutableListOf() }
         resolver.getSymbolsWithAnnotation(AutoElement::class.qualifiedName.orEmpty())
             .filterIsInstance<KSClassDeclaration>()
             .filter(KSNode::validate)
             .forEach { d ->
-                val element = ElementIfo(getLabel(d), d.toClassName())
                 d.superTypes
                     .map { it.resolve().declaration.toClassName() }
                     .filter { result.containsKey(it) }
                     .forEach { name ->
-                        result[name]?.add(element)
+                        result[name]?.add(d.toClassName())
                     }
             }
         return result
-    }
-
-    private fun getLabel(declaration: KSClassDeclaration): String {
-        return declaration.annotations.filter {
-            it.shortName.asString() == AutoElement::class.simpleName.orEmpty()
-        }.map { annotation ->
-            annotation.arguments.filter {
-                it.name?.getShortName() == "label"
-            }.map {
-                it.value as? String
-            }.firstOrNull()
-        }.firstOrNull().orEmpty()
     }
 }

@@ -58,27 +58,31 @@ interface Animal { // Can be abstract class too
 And then, add `@AutoElement` annotation to the actual class you want to create with a String as a
 key for factory to decide which type to create later.
 ```kotlin
-@AutoElement("Dog")
+@AutoElement
 class Dog : Animal {
     override fun sound() = "Dog sound"
 }
 
-@AutoElement("Cat")
+@AutoElement
 class Cat : Animal {
     override fun sound() = "Cat sound"
 }
 ```
 
-After successfully compile, the {BaseClass}Factory will auto-generated like below:
+After successfully compile, the {BaseClass}Factory file will auto-generated like below:
 ```kotlin
-object AnimalFactory {
-  fun create(key: String): Animal = when (key) {
-    "Cat" -> Cat()
-    "Dog" -> Dog()
-    else -> throw RuntimeException("Not support type")
-  }
+public enum class AnimalType {
+    CAT,
+    DOG,
+}
+
+public fun AnimalFactory(key: AnimalType): Animal = when (key) {
+    AnimalType.CAT -> Cat()
+    AnimalType.DOG -> Dog()
 }
 ```
+
+Then you can call `AnimalFactory(AnimalType.CAT)` to get a cat instance now.
 
 ## Contributing
 

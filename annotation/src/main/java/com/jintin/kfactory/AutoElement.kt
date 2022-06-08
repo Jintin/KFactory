@@ -2,4 +2,4 @@ package com.jintin.kfactory
 
 @Target(AnnotationTarget.CLASS)
 @Retention(AnnotationRetention.SOURCE)
-annotation class AutoElement(val label: String)
+annotation class AutoElement

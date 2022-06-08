@@ -5,24 +5,25 @@
     android:layout_margin="16dp"
     android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp" />
-
     <Button
-        android:text="@android:string/ok"
-        android:id="@+id/button"
+        android:id="@+id/dog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="8dp" />
+        android:layout_margin="8dp"
+        android:text="Dog" />
 
-    <TextView
-        android:id="@+id/sound"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="8dp">
+    <Button
+        android:id="@+id/cat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Cat" />
 
-    </TextView>
+    <Button
+        android:id="@+id/fish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Fish" />
+
 </LinearLayout>
