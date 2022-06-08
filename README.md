@@ -69,7 +69,7 @@ class Cat : Animal {
 }
 ```
 
-After successfully compile, the {BaseClass}Factory file will auto-generated like below:
+After successfully compile, the `{BaseClass}Factory` file will auto-generated like below:
 ```kotlin
 public enum class AnimalType {
     CAT,
@@ -82,7 +82,7 @@ public fun AnimalFactory(key: AnimalType): Animal = when (key) {
 }
 ```
 
-Then you can call `AnimalFactory(AnimalType.CAT)` to get a cat instance now.
+Now you can call `AnimalFactory(AnimalType.CAT)` to get a cat or passing `AnimalType.CAT` to get a dog instead.
 
 ## Contributing
 
