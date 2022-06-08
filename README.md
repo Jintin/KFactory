@@ -55,8 +55,7 @@ interface Animal { // Can be abstract class too
 }
 ```
 
-And then, add `@AutoElement` annotation to the actual class you want to create with a String as a
-key for factory to decide which type to create later.
+And then, add `@AutoElement` annotation to the actual class you want to create.
 ```kotlin
 @AutoElement
 class Dog : Animal {
@@ -69,7 +68,7 @@ class Cat : Animal {
 }
 ```
 
-After successfully compile, the `{BaseClass}Factory` file will auto-generated like below:
+After successfully compile, the `AnimalFactory.kt` will auto-generated like below:
 ```kotlin
 public enum class AnimalType {
     CAT,
