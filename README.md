@@ -82,7 +82,7 @@ public fun AnimalFactory(key: AnimalType): Animal = when (key) {
 }
 ```
 
-Now you can call `AnimalFactory(AnimalType.CAT)` to get a cat or passing `AnimalType.CAT` to get a dog instead.
+Now you can call `AnimalFactory(AnimalType.CAT)` to get a cat or passing `AnimalType.DOG` to get a dog instead.
 
 ## Contributing
 
