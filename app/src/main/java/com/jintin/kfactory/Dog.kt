@@ -1,6 +1,6 @@
 package com.jintin.kfactory
 
-@AutoElement("Dog")
+@AutoElement
 class Dog : Animal {
     override fun sound() = "Dog sound"
 }

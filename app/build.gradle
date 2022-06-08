@@ -16,6 +16,10 @@ sourceSets {
 android {
     compileSdk 32
 
+    buildFeatures {
+        viewBinding true
+    }
+
     defaultConfig {
         applicationId "com.jintin.kfactory"
         minSdk 21
@@ -46,8 +50,8 @@ dependencies {
     ksp project(":processor")
 //    implementation 'com.github.Jintin.KFactory:annotation:master-SNAPSHOT'
 //    ksp 'com.github.Jintin.KFactory:processor:master-SNAPSHOT'
-//    implementation 'com.github.Jintin.KFactory:annotation:1.0.0'
-//    ksp 'com.github.Jintin.KFactory:processor:1.0.0'
+//    implementation 'com.github.Jintin.KFactory:annotation:3.0.0'
+//    ksp 'com.github.Jintin.KFactory:processor:3.0.0'
     implementation 'com.google.android.material:material:1.6.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
