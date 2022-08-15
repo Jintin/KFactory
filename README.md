@@ -20,7 +20,7 @@ And then apply the ksp plugin in your module where you need the factory be gener
 
 ```groovy
 plugins {
-    id 'com.google.devtools.ksp' version '1.6.21-1.0.5'
+    id 'com.google.devtools.ksp' version '1.7.10-1.0.6'
 }
 ```
 
