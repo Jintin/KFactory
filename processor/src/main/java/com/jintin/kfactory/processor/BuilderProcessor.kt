@@ -10,6 +10,7 @@ import com.jintin.kfactory.AutoElement
 import com.jintin.kfactory.AutoFactory
 import com.squareup.kotlinpoet.*
 import com.squareup.kotlinpoet.ksp.toClassName
+import com.squareup.kotlinpoet.ksp.writeTo
 
 class BuilderProcessor(
     private val codeGenerator: CodeGenerator,
@@ -20,7 +21,7 @@ class BuilderProcessor(
         val factories = getFactories(resolver)
         val data = getElements(resolver, factories)
         data.forEach {
-            writeFile(codeGenerator, genFile(it.key, it.value))
+            genFile(it.key, it.value).writeTo(codeGenerator, Dependencies(true))
         }
         return emptyList()
     }
@@ -58,16 +59,6 @@ class BuilderProcessor(
                 .endControlFlow()
                 .build())
             .build()
-    }
-
-    private fun writeFile(codeGenerator: CodeGenerator, fileSpec: FileSpec) {
-        codeGenerator.createNewFile(
-            dependencies = Dependencies(true),
-            packageName = fileSpec.packageName,
-            fileName = fileSpec.name
-        ).use {
-            it.writer().use(fileSpec::writeTo)
-        }
     }
 
     private fun getElements(
