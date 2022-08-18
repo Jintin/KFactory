@@ -1,5 +1,6 @@
 package com.jintin.kfactory.processor
 
+import com.google.devtools.ksp.closestClassDeclaration
 import com.google.devtools.ksp.processing.*
 import com.google.devtools.ksp.symbol.KSAnnotated
 import com.google.devtools.ksp.symbol.KSClassDeclaration
@@ -8,6 +9,7 @@ import com.google.devtools.ksp.validate
 import com.jintin.kfactory.AutoElement
 import com.jintin.kfactory.AutoFactory
 import com.squareup.kotlinpoet.*
+import com.squareup.kotlinpoet.ksp.toClassName
 
 class BuilderProcessor(
     private val codeGenerator: CodeGenerator,
@@ -79,7 +81,7 @@ class BuilderProcessor(
             .filter(KSNode::validate)
             .forEach { d ->
                 d.superTypes
-                    .map { it.resolve().declaration.toClassName() }
+                    .map { it.resolve().declaration.closestClassDeclaration()?.toClassName() }
                     .filter { result.containsKey(it) }
                     .forEach { name ->
                         result[name]?.add(d.toClassName())
