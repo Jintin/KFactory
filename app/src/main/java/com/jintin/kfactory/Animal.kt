@@ -1,6 +1,6 @@
 package com.jintin.kfactory
 
 @AutoFactory
-interface Animal { // Can be abstract class too
-    fun sound(): String
+abstract class Animal(val myName: String) { // Can be interface too if you don't need shared parameter
+    abstract fun sound(): String
 }

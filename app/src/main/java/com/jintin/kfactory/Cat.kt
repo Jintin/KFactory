@@ -6,7 +6,7 @@ import com.jintin.kfactory.AutoElement
 class Wrapper {
 
     @AutoElement
-    class Cat : Animal {
-        override fun sound() = "Cat sound"
+    class Cat(extraKey: String) : Animal(extraKey) {
+        override fun sound() = "Cat($myName) sound"
     }
 }

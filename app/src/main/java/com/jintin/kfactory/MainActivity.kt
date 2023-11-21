@@ -14,13 +14,13 @@ class MainActivity : Activity() {
 
         with(binding) {
             dog.setOnClickListener {
-                toast(AnimalFactory(AnimalType.DOG))
+                toast(AnimalFactory(AnimalType.DOG, "SNOOPY"))
             }
             cat.setOnClickListener {
-                toast(AnimalFactory(AnimalType.CAT))
+                toast(AnimalFactory(AnimalType.CAT, "KITTY"))
             }
             fish.setOnClickListener {
-                toast(AnimalFactory(AnimalType.FISH))
+                toast(AnimalFactory(AnimalType.FISH, "MIMO"))
             }
         }
     }
