@@ -20,7 +20,7 @@ And then apply the ksp plugin in your module where you need the factory be gener
 
 ```groovy
 plugins {
-    id 'com.google.devtools.ksp' version '1.7.10-1.0.6'
+    id 'com.google.devtools.ksp' version '1.9.10-1.0.13'
 }
 ```
 
@@ -30,19 +30,6 @@ not `kapt`
 ```groovy
 implementation 'com.github.Jintin.KFactory:annotation:{latest-version}'
 ksp 'com.github.Jintin.KFactory:processor:{latest-version}'
-```
-
-Lastly, the generated file will be located inside `build/generated/ksp/`, but your IDE might not
-able to identify it. In such case you can add it manually like below:
-
-```groovy
-sourceSets {
-    main {
-        java {
-            srcDir "${buildDir.absolutePath}/generated/ksp/"
-        }
-    }
-}
 ```
 
 ## Usage
