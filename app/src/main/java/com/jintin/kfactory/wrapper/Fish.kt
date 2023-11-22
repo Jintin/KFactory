@@ -4,6 +4,6 @@ import com.jintin.kfactory.Animal
 import com.jintin.kfactory.AutoElement
 
 @AutoElement
-class Fish : Animal {
-    override fun sound() = "NA"
+class Fish(extraKey: String) : Animal(extraKey) {
+    override fun sound() = "Fish($myName) no sound"
 }
